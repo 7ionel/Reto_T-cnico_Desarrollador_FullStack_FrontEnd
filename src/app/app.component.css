@@ -1,0 +1,21 @@
+.container{
+  margin: 2% 15% 2% 15%;
+}
+.mat-column-id {
+  flex: 0 0 10%;
+}
+.mat-column-nombres {
+  flex: 0 0 15%;
+}
+.mat-column-apellidos {
+  flex: 0 0 15%;
+}
+.mat-column-fechaNacimiento {
+  flex: 0 0 20%;
+}
+.mat-column-caracteristicas {
+  flex: 0 0 25%;
+}
+.mat-column-posicion {
+  flex: 0 0 15%;
+}

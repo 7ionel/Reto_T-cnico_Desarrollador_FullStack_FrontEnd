@@ -1,0 +1,45 @@
+<div class="container">
+    <div>
+        <h2>Listado de Futbolistas</h2>
+        <mat-form-field class="col-md-4">
+            <mat-label>Futbolistas</mat-label>
+            <mat-select [(ngModel)]="varIdPosicion" (selectionChange)="refreshTable()">
+                <mat-option value="-1"> [Todos] </mat-option>
+                <mat-option *ngFor="let posicion of lstPosicion" [value]="posicion.idposicion">
+                    {{posicion.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-table #table class="mat-cell" [dataSource]="dataSource">
+            <ng-container  matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{aux.id}}</mat-cell>
+            </ng-container>
+            <ng-container  matColumnDef="nombres">
+                <mat-header-cell *matHeaderCellDef >Nombres</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{aux.nombres}}</mat-cell>
+            </ng-container>
+            <ng-container  matColumnDef="apellidos">
+                <mat-header-cell *matHeaderCellDef >Apellidos</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{aux.apellidos}}</mat-cell>
+            </ng-container>
+            <ng-container  matColumnDef="fechaNacimiento">
+                <mat-header-cell *matHeaderCellDef >Fecha de Nacimiento</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{aux.fechaNacimiento}}</mat-cell>
+            </ng-container>
+            <ng-container  matColumnDef="caracteristicas">
+                <mat-header-cell *matHeaderCellDef>Caracteristicas</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{aux.caracteristicas}}</mat-cell>
+            </ng-container>
+            <ng-container  matColumnDef="posicion">
+                <mat-header-cell *matHeaderCellDef>Posicion</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{aux.posicion.nombre}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[6, 8, 10]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
